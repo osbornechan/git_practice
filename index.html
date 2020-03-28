@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='style.css' rel='stylesheet'>
+    <title>Mastermind</title>
+</head>
+<body>
+    <h1>Mastermind</h1>
+
+    <div class='main-container'>
+        <div class='primary-container'>
+            <div class='row answer'>
+                <div class='circle ac0'></div>
+                <div class='circle ac1'></div>
+                <div class='circle ac2'></div>
+                <div class='circle ac3'></div>
+                <div class='square'></div>
+            </div>
+            <div class='row r8'>
+                <div class='circle r8c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle r8c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle r8c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle r8c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r7'>
+                <div class='circle c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c4'></div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r6'>
+                <div class='circle c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r5'>
+                <div class='circle c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r4'>
+                <div class='circle c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r3'>
+                <div class='circle c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r2'>
+                <div class='circle c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                    <div class='tiny-circle tc1'></div>
+                </div>
+            </div>
+            <div class='row r1'>
+                <div class='circle r1c1'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle r1c2'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle r1c3'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='circle r1c4'
+                    ondrop='onDrop(event)'
+                    ondragover='onDragOver(event)'>
+                </div>
+                <div class='square'>
+                    <div class='tiny-circle r1tc1'></div>
+                    <div class='tiny-circle r1tc1'></div>
+                    <div class='tiny-circle r1tc1'></div>
+                    <div class='tiny-circle r1tc1'></div>
+                </div>
+            </div>
+        </div>
+
+        <div class='secondary-container'>
+            <h2>Instructions</h2>
+            <p>Drag the pegs to the slots.</p>
+            <div class='color-box'>
+                <div class='circle' id='cbc0'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc1'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc2'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc3'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc4'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc5'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc6'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+                <div class='circle' id='cbc7'
+                    draggable='true'
+                    ondragstart='onDragStart(event)'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src='script.js'></script>
+</body>
+</html>
