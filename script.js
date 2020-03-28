@@ -8,17 +8,14 @@ function randomCombiGenerator () {
     for (var i = 0; i < colors.length; i++) {
         var num = Math.floor(Math.random() * 8);
         var randomColor = colors[num];
-
+        //No duplicates in answerCombi - ADD CHECK BOX TO SELECT DUPLICATES, ADD BUTTON TO REVEAL ANSWER
         if (!answerCombi.includes(randomColor) && answerCombi.length < 4) {
             answerCombi.push(randomColor);
         }
     }
 }
 
-var start = document.querySelector('body');
 randomCombiGenerator();
-//start.addEventListener("click", randomCombiGenerator)
-///***** change this to another event listener*****
 
 //Append winning combination to solution row
 function appendRandomCombi () {
@@ -59,12 +56,15 @@ function onDrop (event) {
     event.target.appendChild(document.getElementById(data));
 }
 
-//Read the row
-var currentRowArray = [];
 
-function makeArray () {
+var currentRowArray = [];
+var gameTurn = 1;
+
+//Map game row to currentRowArray
+function populateArray () {
+    console.log('entered populateArray')
     for (var l = 1; l < 5; l++) {
-        var selectId = '#r1c' + l;
+        var selectId = '#r' + gameTurn + 'c' + l;
         console.log('selectId: ' + selectId)
         var currentSlot = document.querySelector(selectId).childNodes;
         console.log('currentRow: ' + currentSlot)
@@ -73,17 +73,19 @@ function makeArray () {
         currentRowArray.push(readSlot);
         console.log(currentRowArray)
     }
-    checkAnswer();
 }
-
-document.querySelector('button').addEventListener('click', makeArray);
 
 //Compare the arrays
 function checkAnswer () {
-    var tinySlot1 = document.querySelector('#r1tc1');
-    var tinySlot2 = document.querySelector('#r1tc2');
-    var tinySlot3 = document.querySelector('#r1tc3');
-    var tinySlot4 = document.querySelector('#r1tc4');
+    var slot1 = '#r' + gameTurn + 'tc1';
+    var slot2 = '#r' + gameTurn + 'tc2';
+    var slot3 = '#r' + gameTurn + 'tc3';
+    var slot4 = '#r' + gameTurn + 'tc4';
+
+    var tinySlot1 = document.querySelector(slot1);
+    var tinySlot2 = document.querySelector(slot2);
+    var tinySlot3 = document.querySelector(slot3);
+    var tinySlot4 = document.querySelector(slot4);
 
     for (var m = 0; m < answerCombi.length; m++) {
         for (var n = 0; n < currentRowArray.length; n++) {
@@ -122,4 +124,43 @@ function checkAnswer () {
             }
         }
     }
+    clearRowArray();
 }
+
+//Clear currentRowArray
+function clearRowArray () {
+    for (var p = 0; p < 4; p++) {
+        currentRowArray.pop();
+    }
+}
+
+function trackGameState () {
+    if (gameTurn === 1) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 2) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 3) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 4) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 5) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 6) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 7) {
+        populateArray();
+        checkAnswer();
+    } else if (gameTurn === 8) {
+        populateArray();
+        checkAnswer();
+    }
+    gameTurn++;
+}
+
+document.querySelector('button').addEventListener('click', trackGameState);
