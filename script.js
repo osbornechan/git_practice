@@ -32,8 +32,8 @@ appendRandomCombi();
 function appendColorBox () {
     for (var k = 0; k < colors.length; k++) {
         var colorBoxCircle = '#cbc' + k;
-        var colorBox = document.querySelector(colorBoxCircle);
-        colorBox.style.backgroundColor = colors[k];
+        var colorBoxCircles = document.querySelector(colorBoxCircle);
+        colorBoxCircles.style.backgroundColor = colors[k];
     }
 }
 
@@ -41,8 +41,10 @@ appendColorBox();
 
 //Player select colors (Drag and Drop)
 function onDragStart (event) {
+    console.log('enter ondragstart')
+    console.log(event.target.id)
     event.dataTransfer.setData('text', event.target.id);
-    event.dataTransfer.effectAllowed = "copy";
+    event.dataTransfer.effectAllowed = 'copy'; // WHY DOES THIS NOT WORK????
 }
 
 function onDragOver (event) {
@@ -164,3 +166,18 @@ function trackGameState () {
 }
 
 document.querySelector('button').addEventListener('click', trackGameState);
+
+//Recreate selected pegs
+var colorBox = document.querySelector('.color-box');
+
+function cloneSelectedPegs () {
+    var clonedPeg = document.createElement('div');
+    clonedPeg.classList.add('circle-box');
+    clonedPeg.id = event.target.id + event.target.id;
+    clonedPeg.style.backgroundColor = event.target.style.backgroundColor;
+    clonedPeg.draggable = 'true';
+    clonedPeg.setAttribute('ondragstart', 'onDragStart(event)')
+    colorBox.appendChild(clonedPeg);
+}
+
+colorBox.addEventListener('click', cloneSelectedPegs);
