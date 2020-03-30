@@ -14,9 +14,7 @@ function randomCombiGenerator () {
     }
 }
 
-randomCombiGenerator();
-
-//Append winning combination to solution row
+//Append secret code to answer row
 function appendRandomCombi () {
     for (var j = 0; j < answerCombi.length; j++) {
         var rowCircle = '.ac' + j;
@@ -24,8 +22,6 @@ function appendRandomCombi () {
         answerCircle.style.backgroundColor = answerCombi[j];
     }
 }
-
-appendRandomCombi();
 
 //Append available colors to player color selection box
 function appendColorBox () {
@@ -66,7 +62,9 @@ function hightlightCurrentRow () {
     var nextRow = '#r' + (gameTurn + 1);
     var currentRow = '#r' + gameTurn;
 
-    if (gameTurn === 1) {
+    if(gameTurn === 0) {
+        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
+    } else if (gameTurn === 1) {
         document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
         document.querySelector(nextRow).style.backgroundColor = '#f2b632';
     } else if (gameTurn === 2) {
@@ -108,9 +106,23 @@ function disableDraggable () {
     }
 }
 
-// ******************************* PLAYER MOVES ****************************
-//Player drag and drop colored pegs
 
+// ******************************* PLAYER MOVES ****************************
+//Player clicks start
+var gameTurn = 0;
+
+function start () {
+    console.log('start clicked')
+    hightlightCurrentRow();
+    gameTurn = 1
+    randomCombiGenerator();
+    appendRandomCombi();
+}
+
+document.querySelector('.start').addEventListener('click', start);
+
+
+//Player drag and drop colored pegs
 var fromBox = false;
 
 function onDragStart (event) {
@@ -147,10 +159,10 @@ function onDrop (event) {
     fromBox = false;
 }
 
+
 //Map occupied rows to current arrays
 var currentRowArray = [];
 var tinySlotArraySorted = [];
-var gameTurn = 1;
 
 function populateArray () {
     for (var l = 1; l < 5; l++) {
@@ -165,6 +177,7 @@ function populateArray () {
         currentRowArray.push(readSlot);
     }
 }
+
 
 //Compare the player's combination with the answer combination
 function checkAnswer () {
@@ -225,6 +238,7 @@ function checkAnswer () {
     tinySlot4.style.backgroundColor = tinySlotArraySorted[3];
 }
 
+
 //Clear the player's arrays for next round
 function clearArrays () {
     for (var p = 0; p < 4; p++) {
@@ -232,6 +246,7 @@ function clearArrays () {
         tinySlotArraySorted.pop();
     }
 }
+
 
 //Check the 4 tiny slots to determine win condition
 var answerRow = document.querySelector('#answer');
@@ -246,6 +261,7 @@ function winOrLose () {
     }
     clearArrays();
 }
+
 
 //Controls game state
 function trackGameState () {

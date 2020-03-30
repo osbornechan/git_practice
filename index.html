@@ -138,8 +138,29 @@
         </div>
 
         <div class='secondary-container'>
-            <h2>Instructions</h2>
-            <p>Drag the pegs to the slots.</p>
+            <div class='text-body'>
+                <div class='button-container'>
+                    <h2>Objective</h2>
+                    <button class='start'>Start!</button>
+                </div>
+
+                <p>Guess the secret code! <br>
+                    (Hint: There are no duplicate colors)</p>
+
+                <h2>Instructions</h2>
+                <ol>
+                    <li>Drag the pegs into the slots on the game board</li>
+                    <li>Based on your code, the game will provide clues:
+                        <ul>
+                            <li><strong>Black:</strong> Correct color and position</li>
+                            <li><strong>White:</strong> Correct color, wrong position</li>
+                            <li><strong>Blank:</strong> Wrong color</li>
+                        </ul>
+                    </li>
+                    <li>Too tough? Click 'Reveal Answer'</li>
+                </ol>
+            </div>
+
             <div class='color-box'>
                 <div class='circle' id='cbc0'
                     draggable='true'
