@@ -5,34 +5,24 @@
     <title>Mastermind</title>
 </head>
 <body>
-    <h1>Mastermind</h1>
+    <h1>Let's Play Mastermind</h1>
     <div class='main-container'>
         <div class='primary-container'>
-            <div class='row answer'>
+            <div class='row' id='answer'>
                 <div class='circle ac0'></div>
                 <div class='circle ac1'></div>
                 <div class='circle ac2'></div>
                 <div class='circle ac3'></div>
-                <div class='square'></div>
+                <div class='square'>
+                    <button class='reveal'>Reveal Answer</button>
+                </div>
             </div>
 
-            <div class='row r8'>
-                <div class='circle' id='r8c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r8c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r8c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r8c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r8'>
+                <div class='circle' id='r8c1'></div>
+                <div class='circle' id='r8c2'></div>
+                <div class='circle' id='r8c3'></div>
+                <div class='circle' id='r8c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r8tc1'></div>
                     <div class='tiny-circle' id='r8tc2'></div>
@@ -41,23 +31,11 @@
                 </div>
             </div>
 
-            <div class='row r7'>
-                <div class='circle' id='r7c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r7c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r7c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r7c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r7'>
+                <div class='circle' id='r7c1'></div>
+                <div class='circle' id='r7c2'></div>
+                <div class='circle' id='r7c3'></div>
+                <div class='circle' id='r7c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r7tc1'></div>
                     <div class='tiny-circle' id='r7tc2'></div>
@@ -66,23 +44,11 @@
                 </div>
             </div>
 
-            <div class='row r6'>
-                <div class='circle' id='r6c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r6c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r6c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r6c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r6'>
+                <div class='circle' id='r6c1'></div>
+                <div class='circle' id='r6c2'></div>
+                <div class='circle' id='r6c3'></div>
+                <div class='circle' id='r6c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r6tc1'></div>
                     <div class='tiny-circle' id='r6tc2'></div>
@@ -91,23 +57,11 @@
                 </div>
             </div>
 
-            <div class='row r5'>
-                <div class='circle' id='r5c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r5c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r5c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r5c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r5'>
+                <div class='circle' id='r5c1'></div>
+                <div class='circle' id='r5c2'></div>
+                <div class='circle' id='r5c3'></div>
+                <div class='circle' id='r5c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r5tc1'></div>
                     <div class='tiny-circle' id='r5tc2'></div>
@@ -116,23 +70,11 @@
                 </div>
             </div>
 
-            <div class='row r4'>
-                <div class='circle' id='r4c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r4c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r4c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r4c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r4'>
+                <div class='circle' id='r4c1'></div>
+                <div class='circle' id='r4c2'></div>
+                <div class='circle' id='r4c3'></div>
+                <div class='circle' id='r4c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r4tc1'></div>
                     <div class='tiny-circle' id='r4tc2'></div>
@@ -141,23 +83,11 @@
                 </div>
             </div>
 
-            <div class='row r3'>
-                <div class='circle' id='r3c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r3c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r3c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r3c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r3'>
+                <div class='circle' id='r3c1'></div>
+                <div class='circle' id='r3c2'></div>
+                <div class='circle' id='r3c3'></div>
+                <div class='circle' id='r3c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r3tc1'></div>
                     <div class='tiny-circle' id='r3tc2'></div>
@@ -166,23 +96,11 @@
                 </div>
             </div>
 
-            <div class='row r2'>
-                <div class='circle' id='r2c1'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r2c2'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r2c3'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
-                <div class='circle' id='r2c4'
-                    ondrop='onDrop(event)'
-                    ondragover='onDragOver(event)'>
-                </div>
+            <div class='row' id='r2'>
+                <div class='circle' id='r2c1'></div>
+                <div class='circle' id='r2c2'></div>
+                <div class='circle' id='r2c3'></div>
+                <div class='circle' id='r2c4'></div>
                 <div class='square'>
                     <div class='tiny-circle' id='r2tc1'></div>
                     <div class='tiny-circle' id='r2tc2'></div>
@@ -191,7 +109,7 @@
                 </div>
             </div>
 
-            <div class='row r1'>
+            <div class='row' id='r1'>
                 <div class='circle' id='r1c1'
                     ondrop='onDrop(event)'
                     ondragover='onDragOver(event)'>
@@ -214,7 +132,9 @@
                     <div class='tiny-circle' id='r1tc3'></div>
                     <div class='tiny-circle' id='r1tc4'></div>
                 </div>
+
             </div>
+            <button class='check'>Check Answer!</button>
         </div>
 
         <div class='secondary-container'>
@@ -254,8 +174,6 @@
                     ondragstart='onDragStart(event)'>
                 </div>
             </div>
-
-            <button>Check!</button>
         </div>
     </div>
 

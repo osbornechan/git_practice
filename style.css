@@ -1,3 +1,14 @@
+body{
+	font-family: sans-serif;
+	background-color: #F8F8FF;
+}
+
+h1 {
+	text-align: center;
+	max-width: 800px;
+	color: #252839;
+}
+
 .main-container {
 	max-width: 800px;
 	display: flex;
@@ -10,6 +21,10 @@
 	flex-direction: column;
 }
 
+.primary-container{
+	border: 2px solid black;
+}
+
 .row {
 	width: 310px;
 	height: 50px;
@@ -19,24 +34,34 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
+	background-color: #677077;
+}
+
+#answer {
+	background-color: #252839;
+}
+
+#answer .circle{
+	visibility: hidden;
 }
 
 .color-box {
-	width: 250px;
-	height: 150px;
-	border: 1px solid black;
+	width: 150px;
+	height: 100px;
 	padding: 10px;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-between;
+	border: 1px solid lightgrey;
 }
 
-.circle, .circle-box {
-	width: 50px;
-	height: 50px;
+.circle {
+	width: 30px;
+	height: 30px;
 	border: 1px solid black;
 	border-radius: 50%;
+	background-color: #252839;
 }
 
 .square {
@@ -57,7 +82,31 @@
 	border-radius: 50%;
 }
 
-h1 {
-	text-align: center;
-	max-width: 800px;
+h2, p {
+	color: #252839;
+}
+
+.check {
+	width: 100%;
+	height: 30px;
+	font-family: sans-serif;
+	font-size: 16px;
+	background-color:#f2cbbc;
+	color: black;
+}
+
+.reveal {
+	width: 150px;
+	height: 50px;
+	font-family: sans-serif;
+	font-size: 16px;
+	background-color: #252839;
+	color: white;
+	position: relative;
+	border: 1px solid #677077;
+
+
+}
+#r1 {
+	background-color: #f2b632;
 }
