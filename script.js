@@ -11,7 +11,7 @@ function titleColorChange () {
 
 //Generate a random combination
 function randomCombiGenerator () {
-    while (answerCombi.length < 4){
+    while (answerCombi.length < 4) {
         console.log(answerCombi)
         var num = Math.floor(Math.random() * 8);
         var randomColor = colors[num];
@@ -45,6 +45,7 @@ function appendColorBox () {
 
 appendColorBox();
 
+
 //Only current row can accept drops
 function addDropCondition () {
     for (var n = 1; n < 5; n++) {
@@ -55,20 +56,6 @@ function addDropCondition () {
     }
 }
 
-//Button to reveal answer combination
-function revealAnswer () {
-    var answers = document.querySelectorAll('#answer .circle');
-    for (var p = 0; p < answers.length; p++) {
-        answers[p].style.visibility = 'visible';
-    }
-    revealButton.style.visibility = 'hidden';
-    alert(`You lose. Click 'Restart' to try again.`);
-    startToRestart();
-    gameTurn = gameTurn - 1;
-    endState = true;
-}
-
-document.querySelector('.reveal').addEventListener('click', revealAnswer);
 
 //Highlight current row for player to fill
 function hightlightCurrentRow () {
@@ -77,40 +64,11 @@ function hightlightCurrentRow () {
 
     if (gameTurn === 0) {
         document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-    } else if (gameTurn === 1) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-} else if (gameTurn === 2) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-    } else if (gameTurn === 3) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-    } else if (gameTurn === 4) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-    } else if (gameTurn === 5) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-    } else if (gameTurn === 6) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-    } else if (gameTurn === 7) {
-        document.querySelector(nextRow).style.backgroundColor = '#f2b632';
-        document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
-    } else if (gameTurn === 8) {
+    } else {
         document.querySelector(nextRow).style.backgroundColor = '#f2b632';
         document.querySelector(currentRow).style.backgroundColor = '#b5b5b7';
     }
 }
-
-//Make pegs in used rows undraggable
-// function disableDraggable2(currentRow){
-//     var currentRowCircles = document.querySelectorAll(currentRow + ' .circle.');
-//     for(const currentRowCircle of currentRowCircles){
-//         currentRowCircle.setAttribute('draggable', 'false');
-//     }
-// }
 
 
 // ******************************* PLAYER MOVES ****************************
@@ -118,7 +76,7 @@ function hightlightCurrentRow () {
 var gameTurn = 0;
 var endState = false;
 var revealButton = document.querySelector('.reveal');
-var checkButton = document.querySelector('.check')
+var checkButton = document.querySelector('.check');
 revealButton.disabled = true;
 checkButton.disabled = true;
 
@@ -128,7 +86,7 @@ function start () {
         hightlightCurrentRow();
         randomCombiGenerator();
         appendRandomCombi();
-        addDropCondition ()
+        addDropCondition ();
         event.target.style.visibility = 'hidden';
         revealButton.disabled = false;
         checkButton.disabled = false;
@@ -139,7 +97,7 @@ function start () {
         answerCombi = [];
         randomCombiGenerator();
         appendRandomCombi();
-        event.target.style.visibility = 'hidden'
+        event.target.style.visibility = 'hidden';
         gameTurn = 1;
     }
 }
@@ -180,6 +138,21 @@ function onDrop (event) {
 }
 
 
+function checkAllSlotsFilled () {
+    var filled = true;
+    for (var l = 1; l < 5; l++) {
+        var slot = '#r' + gameTurn + 'c' + l;
+
+        if (!document.querySelector(slot).hasChildNodes()) {
+            filled = false;
+        }
+    }
+    if (!filled) {
+        alert('You need at least 4 pegs!');
+    }
+    return filled;
+}
+
 //Map occupied rows to current arrays
 var currentRowArray = [];
 var tinySlotArraySorted = [];
@@ -193,22 +166,6 @@ function populateArray () {
     }
 }
 
-//Check if all 4 slots are filled
-function areAllSlotsFilled () {
-    var slot1 = '#r' + gameTurn + 'c1';
-    var slot2 = '#r' + gameTurn + 'c2';
-    var slot3 = '#r' + gameTurn + 'c3';
-    var slot4 = '#r' + gameTurn + 'c4';
-
-    var checkSlots1 = document.querySelector(slot1);
-    var checkSlots2 = document.querySelector(slot2);
-    var checkSlots3 = document.querySelector(slot3);
-    var checkSlots4 = document.querySelector(slot4);
-
-    if (checkSlots1.hasChildNodes() === false || checkSlots2.hasChildNodes() === false || checkSlots3.hasChildNodes() === false || checkSlots4.hasChildNodes() === false) {
-        alert('You need at least 4 pegs!');
-    }
-}
 
 //Compare the player's combination with the answer combination
 function checkAnswer () {
@@ -289,7 +246,7 @@ function winOrLose () {
         startToRestart();
         gameTurn = gameTurn - 1;
         endState = true;
-    } else if (gameTurn === 8) {
+    } else if (gameTurn === 8 || event.target.className === 'reveal') {
         alert(`You lose. Click 'Restart' to try again.`);
         revealAnswer();
         startToRestart();
@@ -299,64 +256,37 @@ function winOrLose () {
     clearArrays();
 }
 
+function revealAnswer () {
+    var answers = document.querySelectorAll('#answer .circle');
+    for (var p = 0; p < answers.length; p++) {
+        answers[p].style.visibility = 'visible';
+    }
+
+    document.querySelector('.reveal').style.visibility = 'hidden';
+}
+
+document.querySelector('.reveal').addEventListener('click', winOrLose);
+
 //Controls game state
 function trackGameState () {
-    if (gameTurn === 1) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 2) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 3) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 4) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 5) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 6) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 7) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-        addDropCondition();
-        hightlightCurrentRow();
-    } else if (gameTurn === 8) {
-        areAllSlotsFilled();
-        populateArray();
-        checkAnswer();
-        winOrLose();
-    }
+    var filled = checkAllSlotsFilled();
+    if (filled === true) {
+         if (gameTurn >=1 && gameTurn <= 7) {
+            populateArray();
+            checkAnswer();
+            winOrLose();
+            addDropCondition();
+            hightlightCurrentRow();
+        } else if (gameTurn === 8) {
+            checkAllSlotsFilled();
+            populateArray();
+            checkAnswer();
+            winOrLose();
+        }
     gameTurn++;
+    } else {
+        console.log('You need 4 pegs');
+    }
 }
 
 checkButton.addEventListener('click', trackGameState);
@@ -385,11 +315,11 @@ function resetBoard () {
     }
 
     //Hiding answer combination
-        document.querySelector('.reveal').style.visibility = 'visible';
-        document.querySelector('.ac0').style.visibility = 'hidden';
-        document.querySelector('.ac1').style.visibility = 'hidden';
-        document.querySelector('.ac2').style.visibility = 'hidden';
-        document.querySelector('.ac3').style.visibility = 'hidden';
+    document.querySelector('.reveal').style.visibility = 'visible';
+    document.querySelector('.ac0').style.visibility = 'hidden';
+    document.querySelector('.ac1').style.visibility = 'hidden';
+    document.querySelector('.ac2').style.visibility = 'hidden';
+    document.querySelector('.ac3').style.visibility = 'hidden';
 
     //Resetting row color
     var allRows = document.querySelectorAll('.row');
@@ -404,6 +334,7 @@ function resetBoard () {
 function startToRestart () {
     var restartButton = document.querySelector('.start');
     restartButton.style.visibility = 'visible';
-    restartButton.style.backgroundColor = '#677077';
+    restartButton.style.backgroundColor = '#f2b632';
     restartButton.innerText = 'Restart';
+    restartButton.style.color = 'black';
 }
