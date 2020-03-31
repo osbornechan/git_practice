@@ -6,6 +6,7 @@ body{
 h1 {
 	text-align: center;
 	color: #252839;
+	text-shadow: 2px 2px 1px lightgrey;
 }
 
 .main-container {
@@ -87,7 +88,7 @@ h1 {
 	min-width: 400px;
 	display: flex;
 	flex-direction: column;
-	border: 1px solid black;
+	border: 1px solid lightgrey;
 	padding: 15px;
 }
 
@@ -133,9 +134,4 @@ ol {
 	font-size: 16px;
 	background-color: black;
 	color: white;
-}
-
-}
-#r1 {
-	background-color: #f2b632;
 }
